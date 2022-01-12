@@ -30,6 +30,7 @@ jobs:
       
   job_c:
     needs: [job_a, job_b]
+    if: ${{ !failure() && !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - run: echo Job C
